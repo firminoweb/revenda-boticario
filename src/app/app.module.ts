@@ -2,9 +2,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 // Angular starting core modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 import { RouterModule } from '@angular/router';
 
 // Environments and SW config
@@ -21,6 +23,8 @@ import { ComponentsModule } from './components/components.module';
 // Ng Bootstrap Components
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+registerLocaleData(localePt);
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -35,7 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'pt'}],
   bootstrap: [AppComponent]
 })
 

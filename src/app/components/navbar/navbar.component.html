@@ -1,7 +1,10 @@
 <div class="navbar navbar-expand navbar-dark sticky-top bg-dark flex-md-nowrap shadow-sm p-0">
 
   <a class="navbar-brand ml-3" href="#">
-    <img src="../../../assets/images/logo-white.png" width="120">
+    <img src="../../../assets/images/logo-white.png" width="120" class="d-inline-block align-top">
+    <span class="h6 ml-2 text-light font-weight-light">|
+      <small>Painel do Revendedor</small>
+    </span>
   </a>
   <!-- ll -->
 
@@ -13,18 +16,16 @@
       </a>
 
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" ngbDropdownMenu>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+        <a class="dropdown-item text-primary" routerLink="/dashboard/perfil">
+          <i class="fas fa-user fa-sm fa-fw mr-2"></i>
           Perfil
         </a>
-        <a class="dropdown-item" href="#">
-          <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-          Configurações
-        </a>
+
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+
+        <a class="dropdown-item text-primary" routerLink="/">
           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-          Logout
+          Sair
         </a>
       </div>
     </div>

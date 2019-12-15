@@ -3,15 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CadastroComprasComponent } from './cadastro-compras.component';
-
-// Ng Bootstrap Components
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PerfilComponent } from './perfil.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CadastroComprasComponent
+    component: PerfilComponent
   }
 ];
 
@@ -20,10 +17,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [CadastroComprasComponent]
+  declarations: [PerfilComponent]
 })
 
-export class CadastroComprasModule { }
+export class PerfilModule { }

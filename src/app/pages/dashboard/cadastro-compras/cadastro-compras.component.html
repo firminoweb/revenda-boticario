@@ -1,1 +1,48 @@
-<p>cadastro-compras works!</p>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-primary">Cadastro de Compras</h1>
+</div>
+
+<hr>
+
+<form>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label for="firstName">Código</label>
+      <input type="text" class="form-control" id="codcompra" placeholder="" value="" required="">
+      <div class="invalid-feedback">
+        Código da Compra é obrigatório.
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="lastName">Valor</label>
+      <input type="text" class="form-control" id="valorcompra" placeholder="" value="" required="">
+      <div class="invalid-feedback">
+        Valor da Compra é obrigatório.
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="firstName">Data</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="dd/mm/yyyy"
+               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" dateFormat="dd-MM-yyyy">
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="d.toggle()" type="button">
+            <i class="fas fa-fw fa-calendar"></i>
+          </button>
+        </div>
+      </div>
+      <div class="invalid-feedback">
+        Data da Compra é obrigatório.
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 mb-3">
+      <label for="firstName">Descrição</label>
+      <textarea class="form-control" id="desccompra" rows="6"></textarea>
+    </div>
+  </div>
+
+  <button class="btn btn-primary btn-lg btn-block" type="button">Cadastrar Compra</button>
+</form>
