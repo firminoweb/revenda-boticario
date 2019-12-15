@@ -1,4 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+/* Bootstrap 4 Custom Configs */
+$theme-colors: (
+  "primary": #6fa287,
+  "secondary": #8dcb78,
+  "light": #e8f5e9,
+  "dark": #37474f
+);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$enable-gradients: true;
+
+/* Bootstap 4 import */
+@import "~bootstrap/scss/bootstrap.scss";
+
+/* Font Awesome 5 free */
+// @import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
