@@ -6,14 +6,13 @@ import { Routes, RouterModule } from '@angular/router';
 // All components and widgets
 import { ComponentsModule } from '../../components/components.module';
 
+
+// Component
 import { DashboardComponent } from './dashboard.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: DashboardComponent
-  }
-];
+// Router
+import { DashboardRoutingModule } from './dashboard.routing.module';
+
 
 @NgModule({
   imports: [
@@ -21,7 +20,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule,
-    RouterModule.forChild(routes)
+    DashboardRoutingModule
   ],
   declarations: [DashboardComponent]
 })

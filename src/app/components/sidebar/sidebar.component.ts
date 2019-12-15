@@ -8,9 +8,9 @@ declare interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-  { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-  { path: '/user-profile', title: 'User Profile',  icon: 'person', class: '' },
-  { path: '/table-list', title: 'Table List',  icon: 'content_paste', class: '' }
+  { path: '/dashboard', title: 'Dashboard',  icon: 'fa-tachometer-alt', class: '' },
+  { path: '/cadastro-compras', title: 'Cadastro de Compras',  icon: 'fa-file', class: '' },
+  { path: '/lista-compras', title: 'Lista de Compras',  icon: 'fa-list', class: '' }
 ];
 
 @Component({
@@ -26,6 +26,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    console.log(this.menuItems);
   }
 
   isMobileMenu() {
