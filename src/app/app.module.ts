@@ -1,4 +1,3 @@
-import { NavbarComponent } from './components/navbar/navbar.component';
 // Angular starting core modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,6 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { RouterModule } from '@angular/router';
+
+// Services
+import { ComprasService } from './services';
 
 // Environments and SW config
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -39,7 +41,10 @@ registerLocaleData(localePt);
     NgbModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt'}],
+  providers: [
+    ComprasService,
+    { provide: LOCALE_ID, useValue: 'pt'}
+  ],
   bootstrap: [AppComponent]
 })
 

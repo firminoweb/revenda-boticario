@@ -8,6 +8,7 @@ import { CadastroComprasComponent } from './cadastro-compras.component';
 // Ng Bootstrap Components
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 const routes: Routes = [
   {
     path: '',

@@ -81,31 +81,18 @@
 
 <div class="my-4 p-4 bg-white rounded shadow">
   <h6 class="border-bottom border-gray pb-2 mb-0 text-primary">Últimas Compras cadastradas</h6>
-  <div class="media text-muted pt-3">
-    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-      <strong class="d-block text-gray-dark">@username</strong>
-      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-    </p>
+
+  <div class="media text-muted pt-3" *ngFor="let compra of compras">
+    <div class="media-body">
+      <h6>Código da compra: {{ compra.codigo }}</h6>
+      <p class="pb-3 mb-0 small lh-125 border-bottom border-gray">
+        <strong>Valor:</strong> {{ compra.valor | currency:'R$':'code' }} | <strong>Data:</strong> {{ compra.data | date:'shortDate' }}
+      </p>
+    </div>
+    <span class="badge" [ngClass]="{ 'badge-danger': compra.status === 'Reprovado', 'badge-warning': compra.status === 'Em Validação', 'badge-success': compra.status === 'Aprovado'}">{{ compra.status }}</span>
   </div>
-  <div class="media text-muted pt-3">
-    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-      <strong class="d-block text-gray-dark">@username</strong>
-      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-    </p>
-  </div>
-  <div class="media text-muted pt-3">
-    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-      <strong class="d-block text-gray-dark">@username</strong>
-      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-    </p>
-  </div>
-  <div class="media text-muted pt-3">
-    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-      <strong class="d-block text-gray-dark">@username</strong>
-      Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-    </p>
-  </div>
+
   <div class="d-block text-right mt-3">
-    <a href="javascript:void(0)" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow"><i class="fas fa-list fa-sm text-white-50"></i> Ver todas as compras</a>
+    <a href="javascript:void(0)" [routerLink]="['/dashboard/lista-compras']" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow"><i class="fas fa-list fa-sm text-white-50"></i> Ver todas as compras</a>
   </div>
 </div>

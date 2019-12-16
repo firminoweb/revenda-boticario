@@ -4,34 +4,36 @@
 
 <hr>
 
-<form>
+<form [formGroup]="cadastroForm" class="needs-validation">
+  <p class="text-muted"><small>Todos os campos com (*) asterisco na label são obrigatórios, senão o button não ativa e não cadastra ;D</small></p>
+
   <div class="row">
     <div class="col-md-4 mb-3">
-      <label for="firstName">Código</label>
-      <input type="text" class="form-control" id="codcompra" placeholder="" value="" required="">
-      <div class="invalid-feedback">
-        Código da Compra é obrigatório.
+      <label for="codcompra" class="text-primary">Código*</label>
+      <input type="text" class="form-control" id="codcompra" formControlName="codcompra">
+      <div class="invalid-feedback d-block" *ngIf="cadastroForm.get('codcompra').touched && cadastroForm.get('codcompra').hasError('required')">
+        Código de Compra é obrigatório.
       </div>
     </div>
     <div class="col-md-4 mb-3">
-      <label for="lastName">Valor</label>
-      <input type="text" class="form-control" id="valorcompra" placeholder="" value="" required="">
-      <div class="invalid-feedback">
+      <label for="valorcompra" class="text-primary">Valor*</label>
+      <input type="text" class="form-control" id="valorcompra" formControlName="valorcompra" (keypress)="numberOnly($event)">
+      <div class="invalid-feedback d-block" *ngIf="cadastroForm.get('valorcompra').touched && cadastroForm.get('valorcompra').hasError('required')">
         Valor da Compra é obrigatório.
       </div>
     </div>
     <div class="col-md-4 mb-3">
-      <label for="firstName">Data</label>
+      <label for="datacompra" class="text-primary">Data*</label>
       <div class="input-group">
         <input class="form-control" placeholder="dd/mm/yyyy"
-               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" dateFormat="dd-MM-yyyy">
+               name="dp" formControlName="datacompra" ngbDatepicker #d="ngbDatepicker" dateFormat="dd-MM-yyyy">
         <div class="input-group-append">
           <button class="btn btn-primary" (click)="d.toggle()" type="button">
             <i class="fas fa-fw fa-calendar"></i>
           </button>
         </div>
       </div>
-      <div class="invalid-feedback">
+      <div class="invalid-feedback d-block" *ngIf="cadastroForm.get('datacompra').touched && cadastroForm.get('datacompra').hasError('required')">
         Data da Compra é obrigatório.
       </div>
     </div>
@@ -39,10 +41,10 @@
 
   <div class="row">
     <div class="col-md-8 mb-3">
-      <label for="firstName">Descrição</label>
-      <textarea class="form-control" id="desccompra" rows="6"></textarea>
+      <label for="desccompra" class="text-primary">Descrição</label>
+      <textarea class="form-control" id="desccompra" formControlName="desccompra" rows="6"></textarea>
     </div>
   </div>
 
-  <button class="btn btn-primary btn-lg btn-block" type="button">Cadastrar Compra</button>
+  <button class="btn btn-primary btn-lg btn-block" type="button" [disabled]="!cadastroForm.valid" (click)="cadastrarCompras()">Cadastrar Compra</button>
 </form>
