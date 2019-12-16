@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ComprasService } from '../../../services';
 
 @Component({
   selector: 'app-lista-compras',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ListaComprasComponent implements OnInit {
+  compras: Array<any>;
 
-  constructor() { }
+  constructor(
+    private comprasService: ComprasService
+  ) { }
 
   ngOnInit() {
+    this.compras = this.comprasService.pegarCompras();
   }
 
 }

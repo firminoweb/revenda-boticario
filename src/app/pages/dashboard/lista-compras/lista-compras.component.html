@@ -1,1 +1,27 @@
-<p>lista-compras works!</p>
+<div class="row">
+  <div class="col-xl-4 col-md-6 mb-4" *ngFor="let compra of compras">
+
+    <div class="card shadow h-100">
+      <div class="card-header bg-primary font-weight-bold text-light">
+        Código da compra: {{ compra.codigo }} <span class="badge" [ngClass]="{ 'badge-danger': compra.status === 'Reprovado', 'badge-warning': compra.status === 'Em Validação', 'badge-success': compra.status === 'Aprovado'}">{{ compra.status }}</span>
+      </div>
+      <div class="card-body">
+        <!-- <h5 class="card-title">Card title</h5> -->
+        <h6 class="card-subtitle mb-2 text-muted"><strong>Valor:</strong> {{ compra.valor | currency:'R$':'code' }} | <strong>Data:</strong> {{ compra.data | date:'shortDate' }}</h6>
+
+        <hr>
+
+        <h6 class="text-primary">Descrição</h6>
+        <p class="text-muted">{{ compra.descricao }}</p>
+
+        <hr>
+
+        <a href="#" class="card-link">Card link</a>
+        <a href="#" class="card-link">Another link</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
