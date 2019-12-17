@@ -8,7 +8,7 @@ import compras from './mock-compras';
 export class ComprasService {
   compras: Array<any> = compras;
 
-  findAll() {
+  getAll() {
     return Promise.resolve(compras);
   }
 

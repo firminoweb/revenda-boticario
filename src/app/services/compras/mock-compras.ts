@@ -5,6 +5,7 @@ const compras: Array<any> = [
     valor: 400,
     descricao: 'Lorem ipsum donor dolor avec.',
     porcb: 3,
+    valorcb: 100,
     status: 'Em Validação'
   },
   {
@@ -13,6 +14,7 @@ const compras: Array<any> = [
     valor: 300,
     descricao: 'Lorem ipsum donor dolor avec.',
     porcb: 2.5,
+    valorcb: 70,
     status: 'Reprovado'
   },
   {
@@ -21,6 +23,7 @@ const compras: Array<any> = [
     valor: 350,
     descricao: 'Lorem ipsum donor dolor avec.',
     porcb: 5,
+    valorcb: 125,
     status: 'Aprovado'
   }
 ];
