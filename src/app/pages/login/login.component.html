@@ -1,28 +1,45 @@
 <div class="card form-signin bg-gradient-light shadow-lg rounded">
   <div class="card-body">
-    <form>
+    <form [formGroup]="loginForm" class="needs-validation">
         <div class="text-center mb-4">
           <img class="mb-2" src="../../../assets/images/logo-black.png" alt="Boticário Logo" width="200">
           <p class="text-dark">Painel do Revendedor</p>
         </div>
 
         <div class="form-label-group">
-          <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+          <input type="email" id="email" class="form-control" placeholder="Email" formControlName="email">
           <label for="inputEmail">Email</label>
+
+          <div *ngIf="f.email.touched && f.email.errors">
+            <div class="invalid-feedback d-block" *ngIf="f.email.errors.required">
+              Email obrigatório.
+            </div>
+
+            <div class="invalid-feedback d-block" *ngIf="f.email.errors.email">
+              Email Inválido.
+            </div>
+          </div>
         </div>
 
         <div class="form-label-group">
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+          <input type="password" id="senha" class="form-control" placeholder="senha" formControlName="senha">
           <label for="inputPassword">Senha</label>
+
+          <div *ngIf="f.senha.touched && f.senha.errors">
+            <div class="invalid-feedback d-block" *ngIf="f.senha.errors.required">
+              Senha obrigatório.
+            </div>
+
+            <div class="invalid-feedback d-block" *ngIf="f.senha.errors.minlength">
+              A senha deve conter no mínimo 6 caracteres.
+            </div>
+          </div>
         </div>
 
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="salvar acesso"> Salvar acesso
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="button" [routerLink]="['/dashboard']">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="button" (click)="login()" [disabled]="!loginForm.valid">Log In</button>
     </form>
   </div>
-  <p class="mt-2 text-primary text-center">Não tem uma conta? <a href="#" class="font-weight-bold">CADASTRE-SE</a></p>
+  <p class="mt-2 text-primary text-center">Não tem uma conta? <a href="#" class="font-weight-bold" [routerLink]="['/cadastro']">CADASTRE-SE</a></p>
 </div>
+
+<app-toasts></app-toasts>

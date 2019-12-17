@@ -13,7 +13,8 @@ import {
   ComprasService,
   RevendedorService,
   AuthService,
-  CashbackService
+  CashbackService,
+  ToastService
 } from './services';
 
 // Fake backend
@@ -36,12 +37,11 @@ import { ComponentsModule } from './components/components.module';
 
 // Ng Bootstrap Components
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 registerLocaleData(localePt);
 
 @NgModule({
-  declarations: [AppComponent, CadastroComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -59,6 +59,7 @@ registerLocaleData(localePt);
     RevendedorService,
     AuthService,
     CashbackService,
+    ToastService,
     { provide: LOCALE_ID, useValue: 'pt'},
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
