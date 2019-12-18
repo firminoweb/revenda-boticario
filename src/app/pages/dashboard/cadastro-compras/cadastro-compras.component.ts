@@ -45,7 +45,7 @@ export class CadastroComprasComponent implements OnInit {
       data: data.year + '-' + data.month + '-' + data.day,
       valor: this.cadastroForm.get('valorcompra').value,
       descricao: this.cadastroForm.get('desccompra').value,
-      porcb: 3,
+      porcb: rnd,
       status: status[rnd]
     }).then(() => {
       this.router.navigate(['/dashboard']);

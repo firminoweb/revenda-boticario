@@ -8,30 +8,16 @@
 <div class="row">
 
   <!-- Card Total em Compras -->
-  <div class="col-xl-3 col-md-6 mb-4">
-    <div class="card shadow h-100">
-      <div class="card-header bg-primary font-weight-bold text-light">Total em Compras</div>
-      <div class="card-body">
-        <div class="row no-gutters align-items-center">
-          <div class="col mr-2">
-            <div class="h5 mb-0 font-weight-bold text-primary">R$ 25.000 <div class="h6 text-xs text-primary font-weight-normal d-inline">(Mensal)</div></div>
-          </div>
-          <div class="col-auto">
-            <i class="fas fa-calendar fa-2x text-secondary"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- Card total Cashback -->
-  <div class="col-xl-3 col-md-6 mb-4">
+  <div class="col-xl-6 col-md-6 mb-4">
     <div class="card shadow h-100">
-      <div class="card-header bg-primary font-weight-bold text-light">Total Cashback</div>
+      <div class="card-header bg-primary font-weight-bold text-light">Cashback Acumulado (API)</div>
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="h5 mb-0 font-weight-bold text-primary">R$ 750 <div class="h6 text-xs text-primary font-weight-normal d-inline">(Mensal)</div></div>
+            <div class="h5 mb-0 font-weight-bold text-primary" *ngIf="cashback">{{ cashback.credit | currency:'R$':'code' }} </div>
           </div>
           <div class="col-auto">
             <i class="fas fa-dollar-sign fa-2x text-secondary"></i>
@@ -81,6 +67,8 @@
 
 <div class="my-4 p-4 bg-white rounded shadow">
   <h6 class="border-bottom border-gray pb-2 mb-0 text-primary">Últimas Compras cadastradas</h6>
+
+  <p class="mt-3" *ngIf="compras.length === 0">Nenhuma compra cadastrada.</p>
 
   <div class="media text-muted pt-3" *ngFor="let compra of compras">
     <div class="media-body">

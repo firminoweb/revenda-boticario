@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { CashbackService } from './cashback.service';
 
-describe('WeatherService', () => {
+describe('CashbackService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [CashbackService]

@@ -1,4 +1,21 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-primary">Lista de Compras</h1>
+  <div class="card d-none d-sm-inline-block bg-primary" *ngIf="cashback">
+    <div class="card-body p-2">
+      <span class="text-light"><strong>Cashback Acumulado:</strong> {{ cashback.credit | currency:'R$':'code' }}</span>
+    </div>
+  </div>
+</div>
+
+<hr>
+
 <div class="row">
+  <div class="col-12 card bg-secondary" *ngIf="compras.length === 0">
+    <div class="card-body">
+      <p class="mb-0 text-light">Nenhuma compra cadastrada.</p>
+    </div>
+  </div>
+
   <div class="col-xl-4 col-md-6 mb-4" *ngFor="let compra of compras">
 
     <div class="card shadow h-100">
@@ -6,18 +23,26 @@
         Código da compra: {{ compra.codigo }} <span class="badge" [ngClass]="{ 'badge-danger': compra.status === 'Reprovado', 'badge-warning': compra.status === 'Em Validação', 'badge-success': compra.status === 'Aprovado'}">{{ compra.status }}</span>
       </div>
       <div class="card-body">
-        <!-- <h5 class="card-title">Card title</h5> -->
-        <h6 class="card-subtitle mb-2 text-muted"><strong>Valor:</strong> {{ compra.valor | currency:'R$':'code' }} | <strong>Data:</strong> {{ compra.data | date:'shortDate' }}</h6>
 
-        <hr>
+        <ul class="list-unstyled">
+          <li><strong class="text-primary">Valor da compra:</strong> {{ compra.valor | currency:'R$':'code' }}</li>
+          <li><strong class="text-primary">Data:</strong> {{ compra.data | date:'shortDate' }}</li>
+          <li><strong class="text-primary">% de Cashback:</strong> {{ compra.porcb }}</li>
+          <li><strong class="text-primary">Valor do cashback:</strong> {{ compra.valor * compra.porcb / 100 | currency:'R$':'code' }}</li>
+        </ul>
 
-        <h6 class="text-primary">Descrição</h6>
-        <p class="text-muted">{{ compra.descricao }}</p>
+        <div *ngIf="compra.status === 'Em Validação'">
+          <hr>
 
-        <hr>
-
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+          <a href="javascript:void(0)" class="card-link">
+            <i class="fas fa-fw fa-edit"></i>
+            Editar
+          </a>
+          <a href="javascript:void(0)" (click)="deletarCompra(compra)" class="card-link text-danger">
+            <i class="fas fa-fw fa-trash"></i>
+            Excluir
+          </a>
+        </div>
       </div>
     </div>
 

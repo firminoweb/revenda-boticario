@@ -9,10 +9,11 @@
   <!-- ll -->
 
   <div class="navbar-nav ml-auto">
+
     <div class="dropdown" ngbDropdown>
       <a class="nav-link dropdown-toggle" href="javascript:void(0)" role="button" ngbDropdownToggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <img class="img-profile rounded-circle mr-2" width="32" src="../../../assets/images/avatar.jpeg">
-        <span class="mr-2 d-none d-lg-inline text-gray-600 small">João Firmino</span>
+        <img class="img-profile rounded-circle mr-2" width="32" src="../../../assets/images/avatar.png">
+        <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ currentUser.nomecompleto }}</span>
       </a>
 
       <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" ngbDropdownMenu>
@@ -23,7 +24,12 @@
 
         <div class="dropdown-divider"></div>
 
-        <a class="dropdown-item text-primary" routerLink="/">
+        <a class="dropdown-item text-primary" routerLink="/dashboard/sobre">
+          <i class="fas fa-cog fa-sm fa-fw mr-2"></i>
+          Sobre o Sistema
+        </a>
+
+        <a class="dropdown-item text-primary" (click)="logout()">
           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
           Sair
         </a>
@@ -32,4 +38,14 @@
   </div>
 
 
+</div>
+
+<div class="p-2 col-md-4 col-lg-3 d-md d-lg-none bg-gradient-primary">
+  <ul class="nav flex-column">
+    <li class="nav-item" *ngFor="let item of menuItems">
+      <a class="nav-link text-light" [routerLink]="[item.path]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-fw" [ngClass]="item.icon"></i> {{ item.title }}
+      </a>
+    </li>
+  </ul>
 </div>

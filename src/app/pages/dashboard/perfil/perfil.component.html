@@ -1,1 +1,18 @@
-<p>perfil works!</p>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-primary">Perfil</h1>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-auto d-none d-lg-block">
+    <img src="../../../../assets/images/avatar.png" class="img-thumbnail">
+  </div>
+
+  <div class="col p-4 d-flex flex-column position-static">
+    <h3 class="mb-0 text-primary">{{ currentUser.nomecompleto }}</h3>
+    <div class="mb-2 text-muted font-weight-bold">{{ currentUser.email }}</div>
+
+    <p class="card-text mb-2">{{ currentUser.cpf }}</p>
+  </div>
+</div>

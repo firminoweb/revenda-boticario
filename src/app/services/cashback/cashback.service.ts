@@ -11,10 +11,14 @@ export class CashbackService {
   queryNotFound: string;
 
   constructor(public http: HttpClient) {
-    this.url = 'https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com/v1/cashback?cpf=';
+    this.url = 'https://cors-anywhere.herokuapp.com/https://mdaqk8ek5j.execute-api.us-east-1.amazonaws.com/v1/cashback?cpf=';
   }
 
-  getWeather(cpf): Observable<any> {
+  // getCashback(cpf) {
+  //   return this.http.get(this.url + cpf);
+  // }
+
+  getCashback(cpf): Observable<any> {
     return this.http.get(this.url + cpf).pipe(
       map(this.extractData),
       catchError(this.handleError)

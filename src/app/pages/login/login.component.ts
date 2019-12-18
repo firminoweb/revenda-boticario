@@ -26,12 +26,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.toastService.show('Cadastro realizado com sucesso!',
-    // {
-    //   classname: 'bg-success text-light',
-    //   delay: 2000,
-    //   autohide: true
-    // });
     this.loginForm = this.formBuilder.group({
       email: [null, Validators.compose([
         Validators.required,

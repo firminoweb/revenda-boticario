@@ -1,9 +1,9 @@
 <aside class="col-md-4 col-lg-3 d-none d-md-block bg-gradient-primary sidebar">
   <ul class="nav flex-column">
-      <li class="nav-item" *ngFor="let item of menuItems">
-        <a class="nav-link" [routerLink]="[item.path]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <i class="fas fa-fw" [ngClass]="item.icon"></i> {{ item.title }}
-        </a>
-      </li>
-    </ul>
+    <li class="nav-item" *ngFor="let item of menuItems">
+      <a class="nav-link" [routerLink]="[item.path]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-fw" [ngClass]="item.icon"></i> {{ item.title }}
+      </a>
+    </li>
+  </ul>
 </aside>
